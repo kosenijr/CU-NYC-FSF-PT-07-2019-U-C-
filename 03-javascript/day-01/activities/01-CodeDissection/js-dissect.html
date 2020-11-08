@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      Data Types, User Input, Conditional Logic
+    </title>
+  </head>
+  <body>
+    <!-- used script tags with "type" feature for javascript text -->
+    <script type="text/javascript">
+
+// CREATING VARIABLES
+// ===========================================================
+    
+    // name-request prompt is assigned to userName variable
+      // var userName = prompt("Hi, what's your name?");
+    // confirmation tags is assigned to confirmCats variable
+    // jovial question about the # 7 assigned to Like7 variable
+
+    // respectively assigning attributes to petName, petType, petAge (integer), and petIsDog (boolean)
+      var petName = "Hannibal";
+      var petType = "German Shepard";
+      var petAge = 7;
+      var petIsDog = true;
+
+      let iDo = "Because I do."
+
+      // Move a sentence to the next line by using '\n'.
+
+  // IF/ELSE STATEMENTS
+// ===========================================================
+// i.e.: contextually, if the response from the confirmCats variable is true/affirmative, the alert will show "this page's" petName, petType, and petAge.
+var userName = prompt("Hi, what's your name?");
+      if (userName) {
+        alert("That is a nice name.")
+      }
+      else {
+        alert("Its okay. I understand.")
+      }
+
+var confirmDogs = confirm("Do you like dogs?");
+      if (confirmDogs) {
+        alert("My pet's name is " + petName + ". \n " + "She is a " + petType + ". " + "Hannibal is also " + petAge + " years old.");
+      }
+      else {
+        alert("Nevermind. It was nice talking to you!");
+      }
+
+let like7 = confirm("Do you like the number 7?")
+      if (like7) {
+        alert ("Because, I do.");
+      }
+      else {
+        alert("Wow. That's too bad.")
+      }
+
+      if (petIsDog) {
+        alert("My pet is a dog");
+      }
+      else {
+        alert("My pet is not a dog");
+      }
+
+      if (petAge !== 7) {
+        alert("My pet is not 7 years old");
+      }
+
+      if (petAge === 7) {
+        alert("My pet is 7 years old");
+      }
+      else if (petAge < 5) {
+        alert("My pet is less than 5 years old");
+      }
+      else if (petAge > 5) {
+        alert("My pet is older than 5 years old");
+      }
+
+
+
+      // document.write() overwrites the entire page. We don't normally use this, but we will today for simplicity (this statement is the very last display)
+      document.write("Welcome to our page " + userName);
+
+      var dogAge = prompt("How old is your dog?");
+
+      // Won't work as expected
+      alert(dogAge + 2);
+
+      // Works as expected *********************
+      alert(parseInt(dogAge) + 2);
+
+    </script>
+  </body>
+</html>

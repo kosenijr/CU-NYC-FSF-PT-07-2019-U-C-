@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Band Matters</title>
+</head>
+
+<body>
+    <script type='text/javascript'>
+        // * Create a website that accomplishes the following:
+
+        // * Create an array of your favorite bands.
+        let myBands = ['new edition', '112', 'jagged edge', 'jodeci', 'boyz 2 men'];
+        // check
+        console.log(myBands);
+        // console.log(myBands[0]);
+
+        // * With a prompt, ask the user's favorite band.
+        let yourBand = prompt('What is your favorite band?').toLowerCase();
+        // check
+        // console.log(yourBand);
+
+
+        // SCRAP PAPER 
+        // (marketable idea for getting out all our web-development thoughts)
+        // ====================================================================
+        // create a 'k' variable
+        // let k;
+
+        // check
+        // console.log(myBands.length)
+
+        // create a 'bands' variable
+        // let bands;
+
+        // // create a for loop for all bands mentioned within array
+        // for (k = 0; k < myBands.length; k++) {
+        //     myBands[k];
+        //     // let bands = myBands[k];
+        //     // check
+        //     // console.log(yourBand);
+        //     // check;
+        //     // console.log(bands);
+        //     // set statement
+        //     // console.log(myBands.indexOf(yourBand));
+        //     // if (myBands.indexOf(yourBand) > -1) {
+        //     //     alert('YEAH I LOVE THEM!');
+        //     // }
+        //     // else {alert("Nah. They're pretty lame.")}
+        // };
+        // ====================================================================
+        // check to see if response from user is in myBands' array
+        // (array).indexOf property provides the first index number (x >= 0) if the item exists. If it doesn't, the property will return a value of (-1)
+        // Use a numeric determiner (more clean)
+
+        // checks that every user's response is within indices (x > -1)
+        // if it returns a value of '-1', then the response is not identified within the array
+        console.log(myBands.indexOf(yourBand));
+        // if the user's response is present within the array (x > -1)
+        if (myBands.indexOf(yourBand) > -1) {
+            // * If it's one of your favorites, alert: "YEAH I LOVE THEM!"
+            alert('YEAH I LOVE THEM!');
+        }
+        // * If it's not, alert: "Nah. They're pretty lame."
+        else { alert("Nah. They're pretty lame.") }
+
+
+
+// * **HINT:**  You will need to research how to use `.indexOf()`.
+// * **HINT:** You will need to research how to use `.toLowerCase()`.
+
+    </script>
+</body>
+
+</html>

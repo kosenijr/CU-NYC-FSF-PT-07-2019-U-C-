@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sushi Prompt - Unsolved</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+
+    // Write code here!
+    // * Write JavaScript code that does the following:
+
+    // * Using a confirm, ask the user, "Do you like \_?" Store their response in a variable.
+    let confirmSushi = confirm('Do you like sushi?');
+    console.log(confirmSushi);
+
+    // create a variable for particular types of sushi
+    let SushiType;
+    let noSushi;
+    // * Using a prompt, ask the user, "What kind of \_ do you like?" Store their response in a variable.
+    if (confirmSushi) {
+      SushiType = prompt('Okay. What kind of sushi do you like?');
+      console.log(SushiType);
+    }
+    else { noSushi = alert('Okay. I see that you are not particular fond of sushi.')}
+    // * Alert both variables to the screen.
+    alert(confirmSushi);
+    alert(SushiType);
+    // alerts appear faster than the console logs
+  </script>
+
+</body>
+
+</html>

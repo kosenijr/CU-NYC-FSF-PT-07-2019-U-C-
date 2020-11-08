@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Events!</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <div class="jumbotron">
+          <!-- content of span tags can be changed through js properties (i.e. getElementById) -->
+          <h2>You just typed <span id="user-text"><strong>...Nothing.</strong></span></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- We have to put this at the end of our document to ensure the user-text
+         span exists when we try to access it. -->
+  <script type="text/javascript">
+    // Let's start by grabbing a reference to the <span> below.
+    var userText = document.getElementById("user-text");
+
+    // Next, we give JavaScript a function to execute when onkeyup event fires.
+    // onkeyup
+    document.onkeyup = function (event) {
+      userText.textContent = event.key;
+    };
+
+    // OR
+
+    // onkeydown
+    // document.onkeydown = function (event) {
+    //   userText.textContent = event.key;
+    // };
+
+// textContent vs innerText (limited) must be understood!
+// textContent returns the text content of all elements, while innerText returns the content of all elements, except for <script> and <style> elements.
+// innerText will not return the text of elements that are hidden with CSS (textContent will)
+  </script>
+</body>
+
+</html>

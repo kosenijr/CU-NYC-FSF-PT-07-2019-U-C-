@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Game Unsolved</title>
+</head>
+
+<body>
+    <script type='text/javascript'>
+        // console.log('');
+        // <!-- * Using the code from the previous activity as a starting point, create a complete application that meets the following specifications:
+        // * Users can enter keyboard input (letters).
+        document.onkeyup = function () {
+            // create variable for event key
+            let assignedKey = event.key;
+
+            // **********
+            let mileLog;
+
+            // check event key: successful
+            // console.log(assignedKey);
+
+            // * Each of the car's methods are assigned to a key.
+            // * When the user presses a key, it calls the appropriate function.
+            // * **HINT:\*** You WILL need to use the `document.onkeyup()` function to collect input from the user's keyboard. -->
+
+            //OBJECT
+            // ========================================================================
+            // Creating our car object.
+            var car = {
+
+                // Properties of our car object.
+                make: "Toyota",
+                model: "Camry",
+                color: "Gray",
+                mileage: 5000,
+                isDrifting: true,
+
+                // * These letters also trigger a global function called `reWriteStats()` that logs the car's make, model, color, mileage, and `isDrifting` status to the console.
+                // ========================================================================
+
+                //FUNCTIONS
+                // ========================================================================
+
+                reWriteStats: function () {
+                    console.log(
+                        "\n Make: " + car.make,
+                        "\n Model: " + car.model,
+                        "\n Color: " + car.color,
+                        "\n Mileage: " + car.mileage,
+                        "\n The car is drifting: " + car.isDrifting
+                    );
+
+                },
+
+                // Creating the driveToWork method.
+                // A method is a function associated with an object.
+                headToTokyo: function (mileLog) {
+
+                    // When we say "this" (as in this.mileage) we are referring to the object the method is a part of.
+                    // In this case, we will alert the mileage of the car object.
+                    alert("Old Mileage: " + this.mileage);
+
+                    // Adding 1500 to the car's mileage.
+                    this.mileage = this.mileage + 1500;
+
+                    // Alerting the car's new mileage.
+                    alert("New mileage: " + this.mileage);
+
+                    console.log(this.mileage);
+
+                    // a comma is used to separate attributes of the object (car)
+                },
+
+                // The driveAroundWorld method adds 24,000 miles to our car, sets isWorking to false, and makes some alerts.
+                headBackfromTokyo: function () {
+
+                    alert("Old Mileage: " + this.mileage);
+
+                    this.mileage = this.mileage + 3000;
+
+                    alert("New Mileage: " + this.mileage);
+
+                    console.log(this.mileage);
+
+                    alert("We Back!");
+
+                    this.isDrifting = false;
+
+                },
+
+                // The driftDrift method works if isDrifting is set to true and alerts a message.
+                driftDrift: function () {
+
+                    alert("Car just drifted!");
+                    console.log("Car just drifted!")
+
+                    this.isDrifting = true;
+                },
+
+                // The beepBeep method alerts a beep message.
+                beepBeep: function () {
+                    alert("Beeeeeeeeeeeeeeeeeeeeeeeeeeeeeeep!");
+                    console.log("Beeeeeeeeeeeeeeeeeeeeeeeeeeeeeeep!");
+
+                    this.isDrifting = false;
+                }
+            }
+            // ========================================================================
+
+            //SWITCH STATEMENTS
+            // ========================================================================
+            // Kayode suggests the use of a switch method w/ "assignedKey" expression *************
+            switch (assignedKey) {
+                case 't':
+                case 'T':
+                    car.headToTokyo();
+                    car.reWriteStats();
+                    break;
+                case 'f':
+                case 'F':
+                    car.headBackfromTokyo();
+                    car.reWriteStats();
+                    break;
+                case 'd':
+                case 'D':
+                    car.driftDrift();
+                    car.reWriteStats();
+                    break;
+                case 'b':
+                case 'B':
+                    car.beepBeep();
+                    car.reWriteStats();
+                    break;
+                // do not create a default: solely allow for the action keys requested
+                // default:
+                //     console.log('Please try another command');
+                // =======================================================================
+            };
+
+            // QUESTIONAIRE
+            // =======================================================================
+
+            // // log start of questionaire
+            // console.log("Questionaire starts here ...")
+
+            // // How would we log...
+
+            // // The car's make?
+            // console.log(car.make);
+
+            // // The car's model? 
+            // console.log(car.model);
+
+            // // The car's mileage?
+            // console.log(car.mileage);
+
+            // // // What is the mileage for the car to head to Tokyo?
+            // console.log(car.headToTokyo());
+            // console.log(car.headToTokyo(), car.mileage);
+
+            // // // What is the mileage for the car to head back from Tokyo?
+            // console.log(car.headBackfromTokyo(), car.mileage);
+
+            // // How does the car drift?
+            // car.driftDrift();
+
+            // // How do you activate the car horn?
+            // car.beepBeep();
+            // =======================================================================
+        };
+
+    </script>
+
+
+
+</body>
+
+</html>

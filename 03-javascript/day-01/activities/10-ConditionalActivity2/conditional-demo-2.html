@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Conditional Demo 2</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+
+    // This will alert 'richard' because strings are not numbers
+    if ((6 + "5") === "65") {
+      alert("richard");
+    }
+    else {
+      alert("branson");
+    }
+
+    // This will alert 'branson' because the parseInt makes the equation (6 + 5 = 11)
+    if ((6 + parseInt("5")) === "65") {
+      alert("richard");
+    }
+    else if ((6 + parseInt("5")) === 11) {
+      alert("branson");
+    }
+    else {
+      alert("Try Again");
+    };
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Loops</title>
+  </head>
+  <body>
+
+    <script>
+      var zooArray = ['turtle', 'elephant', 'black panther', 'lion', 'leopard', 'bat', 'possum', 'ostrich'];
+      for (p = 0; p < zooArray.length; p++) {
+        // check if any of the array elements begin with a 't' or 'b'
+        if (zooArray[p].charAt(0) === "t" || zooArray[p].charAt(0) === "b") {
+          alert("index #" + p + " starts with t or b");
+        } else {
+          alert("no it doesn't, for zooArray at index #" + p )
+        }
+      }
+    </script>
+    
+  </body>
+</html>

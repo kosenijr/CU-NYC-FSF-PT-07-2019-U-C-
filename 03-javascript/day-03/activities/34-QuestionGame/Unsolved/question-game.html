@@ -1,0 +1,74 @@
+    <!--
+______________________________________________________________________________________________________________________________________
+### Instructions
+
+* Starting from a blank HTML file, create an array with 10 question objects. Each object in the array should be structured as follows: 
+//   `{ q: "QUESTION", a: "ANSWER" }`.
+* Then create code that will ask the user questions, one by one. The user must answer by hitting t (for true) or f (for false).
+* Check the user's answer against the correct answer, and provide them with an alert telling them if they are right or wrong.
+* **BONUS:** Keep track of the user's score.
+* **HINT:** Don't worry about having DRY code to start with. Just focus on getting working code first. 
+______________________________________________________________________________________________________________________________________
+-->
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle-Rap Question Game</title>
+</head>
+
+<body>
+
+    <h3>Score: <span id="users-score"> </span></h3>
+
+
+    <h3>Here is the Question:</h3>
+    <h3><span id="random-question"> </span></h3>
+
+
+    <h4>User's Choice: <span id="key-pick"> </span></h4>
+
+    <h5><span id="check-answer"> </span></h5>
+
+    <script>
+        // Starting from a blank HTML file, create an array with 10 question objects. Each object in the array should be structured as follows: 
+        //   `{ q: "QUESTION", a: "ANSWER" }`
+
+        let arrayQandA = [
+            { q: "Charlie Clips defeated Hollow da Don in their battle.", a: "True" },
+            { q: "Tay Roc and Tsunami Surf almost fought Chess and Steams in a two-on-two battle.", a: "False" },
+            { q: "T-Top beat Tha Saga to win the Ultimate Freestyling Friday championship.", a: "False" },
+            { q: "T-Top loss to Charlie Clips during the Rookies vs. Vets tournament.", a: "True" },
+            { q: "Hollow da Don's chapstick was thrown back onto the stage after he threw it into the crowd during his battle against Tay Roc.", a: "False" },
+            { q: "Geechi Gotti represents the Grandees neighborhood located in Compton, CA.", a: "True" },
+            { q: "Arsenal represents Newark, NJ.", a: "True" },
+            { q: "John John da Don's super move during battles is his 'guess which room I'm in' scheme.", a: "False" },
+            { q: "Cassidy refused to battle Murda Mook for $20,000.", a: "True" },
+            { q: "Dizaster beat Hollow da Don in the anticipated 'Grudge Match' on the Rare Breed Entertainment stage.", a: "False" }];
+
+        // CREATE VARIABLES
+
+        let usersScore = 0;
+        let randomQuestion;
+        let keyPick;
+        let checkAnswer;
+        let displayTrue = "True";
+        let displayFalse = "False";
+
+        // GET ELEMENTS
+        // usersScore
+        document.getElementById("users-score").innerText = usersScore;
+
+        // random selection for questions
+        let randomSelection = Math.floor(Math.random() * arrayQandA.length);
+        console.log(randomSelection);   
+
+
+    </script>
+</body>
+
+</html>

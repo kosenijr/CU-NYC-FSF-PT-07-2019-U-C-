@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Recap Conditionals and Loops</title>
+</head>
+
+<body>
+
+  <h1>Open the console to see the magic!</h1>
+
+  <script>
+
+    // Instructions:
+    // Using the given arrays, complete the questions below!
+
+    // Rows of Students
+    var studentsRow1 = ["Rachelle", "Jacob", "Jerome", "Greg", "Matt", "Walt"];
+    var studentsRow2 = ["Jeremiah", "Luis", "Nathan", "Analben"];
+    var studentsRow3 = ["Aisha", "Stephen", "John"];
+
+    // console.log(studentsRow1);
+
+    // Entire Class (an array of an array)
+    var entireClass = [studentsRow1, studentsRow2, studentsRow3];
+
+
+
+    // How do we print out every single student in Row 1?
+    console.log(studentsRow1);
+
+    // How do we print out every student in Row 2 whose first name begins with J?
+    // set a variable
+    // create if statement
+    for (k = 0; k < studentsRow2.length; k++) {
+      // console.log(studentsRow2[k]);
+      // console.log(studentsRow2[k].charAt(0));
+
+      // create a variable
+      let jNames = studentsRow2[k];
+
+      if (jNames.charAt(0) === "J") {
+        console.log(jNames)
+      }
+    };
+
+    //     for (k = 0; k < studentsRow1.length; k++) {
+    //       // create a variable to sift out 'J' names
+    //       let jNames = studentsRow1[k];
+    // // if statement targeting 'J' names
+    //       if (jNames.charAt(0) === "J") {
+    //         console.log(jNames)
+    //       }
+    //     };
+
+    // Using the entireClass array, how do we access the second student in row 3?
+    // selecting an array(inner) within an array(outer) will give you the particulars of array(inner) (i.e. studentsRow3 of entireClass)
+    let secondStudent = entireClass[2];
+    // logs studentRow3
+    console.log(secondStudent);
+    // logs 'Stephen' of studentRow3
+    console.log("Second student in Row 3: " + secondStudent[1]);
+    // Using the entireClass array, how do we access the third student in row 2?
+    let thirdStudent = (entireClass[1])[2];
+    console.log("Third student in Row 2: " + thirdStudent);
+
+  </script>
+
+</body>
+
+</html>

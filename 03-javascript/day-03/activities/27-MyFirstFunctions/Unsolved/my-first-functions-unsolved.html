@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>My First Function</title>
+</head>
+
+<body>
+
+  <h1>Open the console to see the magic!</h1>
+
+  <script>
+
+    // FUNCTIONS
+    // ================================================================================
+
+    // Create a Function called "adder" that takes three arguments (x, y, z).
+    // The function should add the arguments together, and log the result to the console.
+    function adder(x, y, z) {
+      let theSum = x + y + z;
+      console.log(theSum);
+    }
+    // call function
+    // adder();
+
+    // Create a Function called "multiplier" that takes three arguments (x, y, z).
+    // The function should multiply the arguments, and log the result to the console.
+    function multiplier(x, y, z) {
+      let theProduct = x * y * z;
+      console.log(theProduct);
+    }
+    // call function
+    // multiplier();
+
+    // Create a Function called "isString" that takes three arguments (x, y, z).
+    // "isString" determines if all three arguments are strings and logs an appropriate response to the console.
+    function isString(x, y, z) {
+      if (typeof (x && y && z) === 'string') {
+        console.log("All three arguments are strings!")
+      }
+      else { console.log('Not all three arguments are strings!') };
+    }
+    // call function
+    // isString();
+
+    // Create a Function called "vowelChecker" that takes in a single argument (x).
+    // "vowelChecker" logs whether or not the input is a vowel.
+    function vowelChecker(x) {
+      // create target-specific variable
+      let firstLetter = x.charAt(0).toLowerCase();
+      // check the first letter of a word
+      if (firstLetter === 'A' || firstLetter === 'E' || firstLetter === 'I' || firstLetter === 'O' || firstLetter === 'U') {
+        console.log(firstLetter + ' is a vowel.');
+      }
+      else { console.log(firstLetter + ' is not a vowel.') }
+    }
+    // call function
+    // vowelChecker('Analise');
+    // vowelChecker('Nathan');
+
+
+    // BONUS
+    // Creates a version of "adder" that returns its result. Function is called "adderReturn".
+    function adderReturn(x, y, z) {
+      let theSum = x + y + z;
+      return theSum;
+    }
+    // call function
+    // adder();
+
+    // Creates a version of "multiplier" that returns its result. Function is called "multiplierReturn".
+    function multiplierReturn(x, y, z) {
+      let theProduct = x * y * z;
+      return theProduct;
+    }
+    // call function
+    // multiplierReturn();
+
+
+    // FUNCTION EXECUTION
+    // ================================================================================
+
+    // Add in the lines of code below necessary to call the functions we created above.
+
+
+    // Call the adder function here.
+    adder(1, 2, 4);
+
+
+    console.log("-------------------");
+
+
+    // Call the multiplier function here.
+    multiplier(1, 2, 4);
+
+    console.log("-------------------");
+
+
+    // Call the isString function here.
+    isString(1, 2, 4);
+
+    console.log("-------------------");
+
+
+    // Call the vowelChecker function here.
+    vowelChecker("Chen");
+    vowelChecker("Ayomide")
+
+    console.log("-------------------");
+
+
+    // BONUS
+    // Call the adderReturn function here and set it equal to a variable. Then log that variable to the console.
+    let aReturn = adderReturn(1, 2, 4);
+    console.log(aReturn);
+
+    console.log("-------------------");
+
+
+    // Call the multiplierReturn function here and set it equal to a variable. Then log that variable to the console.
+    let mReturn = multiplierReturn(1, 2, 4);
+    console.log(mReturn);
+
+  </script>
+
+</body>
+
+</html>

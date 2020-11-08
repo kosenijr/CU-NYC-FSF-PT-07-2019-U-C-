@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Assignment #9</title>
+</head>
+
+<body>
+
+    <script type='text/javascript'>
+// * Create a website (from scratch) that asks users if they eat steak.
+let eatSteak = confirm('Do you eat steak?')
+// * If they respond with "yes", write the following to the page: "Here’s a Steak Sandwich!"
+if (eatSteak) {
+    document.write("Here's a Steak Sandwich!");
+}
+// * If they respond with "no", write the following to the page: "Here’s a Tofu Stir-Fry!"
+else {document.write("Here's a Tofu Stir-Fry!")}
+// * **BONUS:** Ask what the user’s birth year is. If they are under 21, alert the following: "No Sake for you!"
+let birthYear = prompt ('What year were you born?')
+if (birthYear < 1999) {
+    alert('Have as much Sake as you like!');
+}
+else if (birthYear > 1999) {
+    alert('No Sake for you!');
+}
+else {
+    alert('You just make it! Have some Sake!')
+}
+// alerts appear before document.write
+
+// * **HINT:** You will need to use `document.write()` from a few slides back.
+
+    </script>
+</body>
+
+</html>

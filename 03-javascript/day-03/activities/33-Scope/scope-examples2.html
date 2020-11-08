@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My First Object</title>
+</head>
+
+<body>
+
+    <h1>Open the console to see the magic!</h1>
+    <h2 id="second-heading"> </h2>
+
+    <script>
+        let exposed = "I can see this message!";
+
+        function firstFunction(message) {
+            // Inside of firstFunction, I can see both exposed and
+            // message.
+            console.log(message + exposed);
+        }
+
+        firstFunction("Hey, ");
+
+        // This will throw an error--the message variable
+        // is only visible *inside* of firstFunction.
+        // console.log(message);
+
+        function secondFunction(exposed) {
+            // secondFunction *should* be able to see the exposed
+            //  variable we declared above, but we've "shadowed" it!
+            console.log(exposed);
+        }
+
+        secondFunction("This isn't what I thought I wrote...");
+        secondFunction(exposed);
+
+        // Finally, keep in mind that using "return" lets us
+        // give something back to whomever called the function.
+        function thirdFunction(message) {
+            return message + exposed;
+        }
+
+        let visual = thirdFunction("Wow! ");
+
+        // don't forget .innerHTML/.innerText after getElementById ********
+        document.getElementById("second-heading").innerHTML = visual;
+
+        // log visual variable to console
+        console.log(visual);
+
+        // Try to do things this way, instead of using console.log
+        // inside of your functions.
+        // store called function inside of a variable, then log variable to console. ************************************
+        // var message = thirdFunction("Oh my! ");
+        // console.log(message);
+
+        // equivalent:
+        // console.log(thirdFunction("Wow! "));
+
+    </script>
+
+</body>
+
+</html>

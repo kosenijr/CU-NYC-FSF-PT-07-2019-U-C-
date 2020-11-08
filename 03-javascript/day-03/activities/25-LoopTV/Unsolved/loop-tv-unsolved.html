@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Favorite TV Shows</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+      // declare vars: one empty array and one variable
+      var favTVshows = [];
+      var tvShow;
+
+      // For Loop Elements Repeats 3 Times
+      for (var i = 1; i < 4; i++) {
+
+        // asks the user for their fav show in order according to the iterator
+        // and store the answer(s) in a var
+        tvShow = prompt("What's your #" + i + " favorite TV show?");
+
+        // push the user choice into the array
+        favTVshows.push(tvShow);
+
+        // *Cannot alert(tvShow) now because alerts will be scattered and occur right after each prompt
+        // using separate loop is practical
+        // alert(tvShow);
+      }
+
+
+      // run a loop to iterate through the populated arrray
+      for (var j = 0; j < favTVshows.length; j++) {
+
+        // and show it to the user using alerts
+        alert(favTVshows[j]);
+      }
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "weather-thing",
+  "version": "1.0.0",
+  "description": "a waether thing",
+  "main": "weatherdest.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-geocoder": "^3.24.0",
+    "weather-js": "^2.0.0"
+  }
+}

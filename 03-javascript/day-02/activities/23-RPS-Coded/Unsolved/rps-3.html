@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS: Rock, Paper, and Scissors</title>
+</head>
+
+<body>
+    <h4>WINS: <span id="wins">0</span></h4>
+    <h4>LOSSES: <span id="losses">0</span></h4>
+    <h4>TIES: <span id="ties">0</span></h4>
+    <hr>
+    <!-- ======================================================== -->
+
+    <h4>TO PLAY, PLEASE PRESS R, P, OR S, ON YOUR KEYBOARD!</h4>
+
+    <p>USER'S CHOICE: <span id="user-guess">Ready!</span></p>
+    <p>COMPUTER'S CHOICE: <span id="comp-guess">Ready!</span></p>
+
+    <script type="text/javascript">
+
+        // VARIABLES
+        // ========================================================
+        // create rps array
+        const choices = ['Rock', 'Paper', 'Scissors'];
+        // check
+        // console.log(choices);
+
+        // create other variables
+        let c = choices;
+        // check
+        // console.log(c);
+
+        let cL = c.length;
+        // check
+        // console.log(cL);
+
+        // set up user guess
+        let userGuess;
+
+        // set up computer guess
+        let compGuess;
+        // check
+        // console.log(compGuess);
+
+        // get wins and losses elements by ID
+        let wins = 0;
+        let losses = 0;
+        let ties = 0;
+
+        // SCRAP PAPER
+        // ========================================================
+        // applying template
+        // document.onkeyup = function (event) {
+        //     userText.textContent = event.key;
+        // };
+        // document.addEventListener('keypress', userKeys);
+        // ========================================================
+
+        // EXPERIMENTAL PORTION
+        // ========================================================
+        // get function by ID: userKeys
+        // document.getElementById('user-guess') = ;
+        // ========================================================
+
+
+
+        // create onkeypress for function event: target the document
+        // ========================================================
+        document.onkeypress = function () { userKeys(event) };
+        // ========================================================
+
+        // create a function for userKeys' event
+        // ========================================================
+        function userKeys(event) {
+
+            let pickedLetter = event.key;
+            // check
+            // console.log(pickedLetter);
+
+            let nextPick = "Please chose r, p, or s!"
+
+
+            // --------------------------------------------------------
+            // create rps variables
+            let rps = pickedLetter === "r" || pickedLetter === "p" || pickedLetter === "s";
+            let RPS = pickedLetter === "R" || pickedLetter === "P" || pickedLetter === "S";
+            let r = pickedLetter === "r" || pickedLetter === "R";
+            let p = pickedLetter === "p" || pickedLetter === "P";
+            let s = pickedLetter === "s" || pickedLetter === "S";
+            // --------------------------------------------------------
+
+
+            // restrict guesses to the letter's r, p, and s
+            // --------------------------------------------------------
+
+            if (rps) {
+                // console.log(pickedLetter);
+                userGuess = pickedLetter;
+                compGuess = c[Math.floor(Math.random() * cL)];
+                // console.log(compGuess);
+
+            }
+            // made certain that if any capitalized r, p, and s, are selected, it will reflect in lowercase
+            else if (RPS) {
+                // console.log(pickedLetter.toLowerCase());
+                userGuess = pickedLetter.toLowerCase();
+
+            }
+            // create a message for user to pick another letter
+            else {
+                console.log(nextPick);
+                userGuess = nextPick;
+            };
+            // --------------------------------------------------------
+
+
+            // turning 'r', 'p', and 's' to 'Rock', 'Paper', and 'Scissors', respectively
+            // --------------------------------------------------------
+            // create user references to the above array
+            if (r) {
+                // console.log(c[0]);
+                userGuess = c[0];
+            }
+            else if (p) {
+                // console.log(c[1]);
+                userGuess = c[1];
+            }
+            else if (s) {
+                // console.log(c[2]);
+                userGuess = c[2];
+            }
+            else {
+                console.log(nextPick);
+                userGuess = nextPick;
+            }
+            // --------------------------------------------------------
+
+
+            // get user-guess by ID
+            // --------------------------------------------------------
+
+            document.getElementById('user-guess').innerText = userGuess;
+            // get compGuess by ID
+            document.getElementById('comp-guess').innerText = compGuess;
+            // --------------------------------------------------------
+
+
+            // EXPERIMENTAL PORTION
+            // --------------------------------------------------------
+            // create a reset function
+            // function reset() {
+            //     compGuess = 'Ready!';
+            //     userGuess = 'Ready!';
+            //     wins = 0;
+            //     losses = 0;
+            //     ties = 0;
+            // }
+            // reset();
+            // --------------------------------------------------------
+
+
+            // create rules of rps
+            // --------------------------------------------------------
+            // referencing array: ['Rock', 'Paper', 'Scissors']
+
+            if ((userGuess === c[0] && compGuess === c[2]) || (userGuess === c[1] && compGuess === c[0]) || (userGuess === c[2] && compGuess === c[1])) {
+                wins += 1;
+            }
+            else if ((userGuess === c[0] && compGuess === c[1]) || (userGuess === c[1] && compGuess === c[2]) || (userGuess === c[2] && compGuess === c[0])) {
+                losses += 1;
+            }
+            else if (userGuess === nextPick) {
+                null;
+            }
+            else {
+                ties += 1;
+            }
+            // --------------------------------------------------------
+
+
+            // get wins, losses, and ties by ID
+            // --------------------------------------------------------
+            document.getElementById('wins').innerText = wins;
+            document.getElementById('losses').innerText = losses;
+            document.getElementById('ties').innerText = ties;
+            // --------------------------------------------------------
+        }
+        // end of userKeys function
+        // ========================================================
+    </script>
+
+</body>
+
+</html>
