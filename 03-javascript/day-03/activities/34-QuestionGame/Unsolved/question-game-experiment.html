@@ -41,29 +41,43 @@ ________________________________________________________________________________
         let arr2 = [];
 
         // create randSelect
-        let randSelect = Math.floor(Math.random () * arr1.length);
-        console.log(`randSelect: ${randSelect}`);
+        // let randSelect = Math.floor(Math.random() * arr1.length);
+        // console.log(`randSelect: ${randSelect}`);
 
-        console.log(`This is arr1: ${arr1} \n This is arr2: ${arr2}`);
+        // console.log(`This is arr1: ${arr1} \n This is arr2: ${arr2}`);
+
+        let arr = [12, 5, 8, 130, 34, 67, 34, 23, 44];
+        console.log(arr);
 
         //keypress
-        document.onkeypress = function() {
-            // shuffle function
+        document.onkeypress = function () {
+            // set up event.key
             let key = event.key;
-            console.log(arr1);
-            
+            // limit event.key: true or false
+            if (key === 't' || key === 'f') {
+                console.log(key);
+
+                // SET UP FILTER FOR ARRAY
+                let indexNum = Math.floor(Math.random() * arr.length);
+                console.log(`this is the index: ${indexNum}`);
+
+                function removeValue(value) {
+                    return value !== arr[indexNum];
+                };
+
+                console.log(arr[indexNum]);
+
+                let filtered = arr.filter(removeValue);
+                console.log(filtered);
+            }
+        };
+
             // create a shuffle that once an index is picked, the index is removed from the array until array is at zero, then the array restarts.
             // function shuffle() {
             // if (randSelect) {
             //     arr1.
-
             // }
-
-
             // }
-
-        }
-
 
     </script>
 </body>
