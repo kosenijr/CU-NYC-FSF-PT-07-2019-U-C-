@@ -1,4 +1,4 @@
-    <!--
+<!--
 ______________________________________________________________________________________________________________________________________
 ### Instructions
 
@@ -38,7 +38,7 @@ ________________________________________________________________________________
         // Starting from a blank HTML file, create an array with 10 question objects. Each object in the array should be structured as follows: 
         //   `{ q: "QUESTION", a: "ANSWER" }`
 
-        let arrayQandA = [
+        let array1QandA = [
             { q: "Charlie Clips defeated Hollow da Don in their battle.", a: "True" },
             { q: "Tay Roc and Tsunami Surf almost fought Chess and Steams in a two-on-two battle.", a: "False" },
             { q: "T-Top beat Tha Saga to win the Ultimate Freestyling Friday championship.", a: "False" },
@@ -49,6 +49,13 @@ ________________________________________________________________________________
             { q: "John John da Don's super move during battles is his 'guess which room I'm in' scheme.", a: "False" },
             { q: "Cassidy refused to battle Murda Mook for $20,000.", a: "True" },
             { q: "Dizaster beat Hollow da Don in the anticipated 'Grudge Match' on the Rare Breed Entertainment stage.", a: "False" }];
+
+        let array2QandA = [];
+
+        // check
+        console.log(array1QandA);
+        console.log(array2QandA);
+
 
         // CREATE VARIABLES
 
@@ -64,8 +71,45 @@ ________________________________________________________________________________
         document.getElementById("users-score").innerText = usersScore;
 
         // random selection for questions
-        let randomSelection = Math.floor(Math.random() * arrayQandA.length);
-        console.log(randomSelection);   
+        let randomSelection = Math.floor(Math.random() * array1QandA.length);
+        console.log(randomSelection);
+
+
+
+        //keypress
+        document.onkeypress = function () {
+            // set up event.key
+            let key = event.key;
+            // limit event.key: true or false
+            if (key === 't' || key === 'f') {
+                console.log(key);
+
+                // SET UP FILTER FOR ARRAY
+                // let indexNum = Math.floor(Math.random() * array1QandA.length);
+
+                let indexNum = Math.floor(Math.random() * array1QandA.length);
+                array2QandA.push(array1QandA[indexNum]);
+                array1QandA.splice(indexNum, 1);
+
+                // console.log(`this is the index: ${indexNum}`);
+                console.log(array1QandA);
+                console.log(array2QandA);
+
+                // function removeValue(value) {
+                //     return value !== array1QandA[indexNum];
+                // };
+
+                // console.log(array1QandA[indexNum]);
+
+                // let filtered = array1QandA.filter(removeValue);
+                // console.log(filtered);
+
+
+
+            }
+        };
+
+
 
 
     </script>
