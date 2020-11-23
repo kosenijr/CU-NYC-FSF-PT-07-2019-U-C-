@@ -38,6 +38,8 @@ ________________________________________________________________________________
         // Starting from a blank HTML file, create an array with 10 question objects. Each object in the array should be structured as follows: 
         //   `{ q: "QUESTION", a: "ANSWER" }`
 
+        // CREATE 2 ARRAYS:
+        // 1 Full
         let array1QandA = [
             { q: "Charlie Clips defeated Hollow da Don in their battle.", a: "True" },
             { q: "Tay Roc and Tsunami Surf almost fought Chess and Steams in a two-on-two battle.", a: "False" },
@@ -50,33 +52,29 @@ ________________________________________________________________________________
             { q: "Cassidy refused to battle Murda Mook for $20,000.", a: "True" },
             { q: "Dizaster beat Hollow da Don in the anticipated 'Grudge Match' on the Rare Breed Entertainment stage.", a: "False" }];
 
+        // 1 Empty
         let array2QandA = [];
 
         // check
         console.log(array1QandA);
         console.log(array2QandA);
-
+        // __________________________________________________________
 
         // CREATE VARIABLES
-
         let usersScore = 0;
         let randomQuestion;
         let keyPick;
         let checkAnswer;
         let displayTrue = "True";
         let displayFalse = "False";
+        // __________________________________________________________
 
         // GET ELEMENTS
         // usersScore
         document.getElementById("users-score").innerText = usersScore;
+        // __________________________________________________________
 
-        // random selection for questions
-        let randomSelection = Math.floor(Math.random() * array1QandA.length);
-        console.log(randomSelection);
-
-
-
-        //keypress
+        //KEY PRESS
         document.onkeypress = function () {
             // set up event.key
             let key = event.key;
@@ -84,32 +82,80 @@ ________________________________________________________________________________
             if (key === 't' || key === 'f') {
                 console.log(key);
 
-                // SET UP FILTER FOR ARRAY
-                // let indexNum = Math.floor(Math.random() * array1QandA.length);
+                // create two random selection
+                let indexNum = Math.floor(Math.random() * array1QandA.length)
+                console.log(indexNum);
 
-                let indexNum = Math.floor(Math.random() * array1QandA.length);
-                array2QandA.push(array1QandA[indexNum]);
-                array1QandA.splice(indexNum, 1);
+                let indexNum2 = Math.floor(Math.random() * array2QandA.length)
 
-                // console.log(`this is the index: ${indexNum}`);
-                console.log(array1QandA);
-                console.log(array2QandA);
-
-                // function removeValue(value) {
-                //     return value !== array1QandA[indexNum];
-                // };
-
-                // console.log(array1QandA[indexNum]);
-
-                // let filtered = array1QandA.filter(removeValue);
-                // console.log(filtered);
+                if (array1QandA) {
+                    array1QandA.push(array1QandA[indexNum]);
+                    array1QandA.splice(indexNum, 1);
+                    // console.log(`this is the index: ${indexNum}`);
+                    console.log(array1QandA);
+                    // console.log(array2QandA);
+                }
 
 
 
+                // Create two functions: one for each array
+                // create a function that continuously transfers questions and answers from one array to another
+                // function arrayOneGone() {
+                //     // if/else statements for array filter
+                //     if (array1QandA.length > 0) {
+                //         array2QandA.push(array1QandA[indexNum]);
+                //         array1QandA.splice(indexNum, 1);
+
+                //         // console.log(`this is the index: ${indexNum}`);
+                //         // console.log(array1QandA);
+                //         // console.log(array2QandA);
+                //     }
+                //     // Close: arrayOneGone() Function
+                // }
+
+                // function arrayTwoGone() {
+                //     if (array2QandA.length > 0) {
+                //         array1QandA.push(array2QandA[indexNum2]);
+                //         array2QandA.splice(indexNum2, 1);
+
+                //         // console.log(`this is the index: ${indexNum}`);
+                //         // console.log(array1QandA);
+                //         // console.log(array2QandA);
+
+                //     }
+                //     // Close: arrayTwoGone() Function
+                // }
+
+                // execute functions
+                // arrayOneGone();
+                // arrayTwoGone();
+                // after I switched the array variables, arrayTwoGone() worked perfectly.
+
+
+                // console.log(array1QandA);
+                // console.log(array2QandA);
+
+
+
+                // Close: t/f keys
             }
-        };
+            // Close: Key Press
+        }
 
+        // __________________________________________________________
 
+// __________________________________________________________
+
+// Misc: Filter
+    // function removeValue(value) {
+    //     return value !== array1QandA[indexNum];
+    // };
+
+    // console.log(array1QandA[indexNum]);
+
+    // let filtered = array1QandA.filter(removeValue);
+    // console.log(filtered);
+// __________________________________________________________
 
 
     </script>
