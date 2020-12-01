@@ -52,12 +52,17 @@ ________________________________________________________________________________
             { q: "Cassidy refused to battle Murda Mook for $20,000.", a: "True" },
             { q: "Dizaster beat Hollow da Don in the anticipated 'Grudge Match' on the Rare Breed Entertainment stage.", a: "False" }];
 
-        // 1 Empty
-        let array2QandA = [];
+        // check this array
+        // for (x of array1QandA) {
+        //     console.log(x);
+        // }
 
-        // check
+        // 1 Empty
+        // let array2QandA = [];
+
+        // check and provide starting point for console
         console.log(array1QandA);
-        console.log(array2QandA);
+        // console.log(array2QandA);
         // __________________________________________________________
 
         // CREATE VARIABLES
@@ -80,82 +85,38 @@ ________________________________________________________________________________
             let key = event.key;
             // limit event.key: true or false
             if (key === 't' || key === 'f') {
-                console.log(key);
+                // console.log(key);
 
                 // create two random selection
-                let indexNum = Math.floor(Math.random() * array1QandA.length)
-                console.log(indexNum);
+                let indexNum = Math.floor(Math.random() * array1QandA.length);
+                console.log(`this is the index: ${indexNum}`);
+                console.log(array1QandA[indexNum]);
 
-                let indexNum2 = Math.floor(Math.random() * array2QandA.length)
-
-                if (array1QandA) {
-                    array1QandA.push(array1QandA[indexNum]);
-                    array1QandA.splice(indexNum, 1);
-                    // console.log(`this is the index: ${indexNum}`);
-                    console.log(array1QandA);
-                    // console.log(array2QandA);
-                }
+                // let indexNum2 = Math.floor(Math.random() * array2QandA.length);
+                // console.log(`this is the index: ${indexNum2}`);
 
 
-
-                // Create two functions: one for each array
+                // Create two functions:\/;p one for each array
                 // create a function that continuously transfers questions and answers from one array to another
-                // function arrayOneGone() {
-                //     // if/else statements for array filter
-                //     if (array1QandA.length > 0) {
-                //         array2QandA.push(array1QandA[indexNum]);
-                //         array1QandA.splice(indexNum, 1);
+                function oneByOne() {
+                    // if/else statements for array filter
+                    if (array1QandA.length > 0) {
+                        // array2QandA.push(array1QandA[indexNum]);
+                        array1QandA.splice(indexNum, 1);
 
-                //         // console.log(`this is the index: ${indexNum}`);
-                //         // console.log(array1QandA);
-                //         // console.log(array2QandA);
-                //     }
-                //     // Close: arrayOneGone() Function
-                // }
-
-                // function arrayTwoGone() {
-                //     if (array2QandA.length > 0) {
-                //         array1QandA.push(array2QandA[indexNum2]);
-                //         array2QandA.splice(indexNum2, 1);
-
-                //         // console.log(`this is the index: ${indexNum}`);
-                //         // console.log(array1QandA);
-                //         // console.log(array2QandA);
-
-                //     }
-                //     // Close: arrayTwoGone() Function
-                // }
-
-                // execute functions
-                // arrayOneGone();
-                // arrayTwoGone();
-                // after I switched the array variables, arrayTwoGone() worked perfectly.
-
-
-                // console.log(array1QandA);
-                // console.log(array2QandA);
-
-
-
+                        console.log(array1QandA);
+                        // console.log(array2QandA);
+                        // close if statement
+                    }
+                }
+                oneByOne();
+                // execute
                 // Close: t/f keys
             }
+
             // Close: Key Press
         }
 
-        // __________________________________________________________
-
-// __________________________________________________________
-
-// Misc: Filter
-    // function removeValue(value) {
-    //     return value !== array1QandA[indexNum];
-    // };
-
-    // console.log(array1QandA[indexNum]);
-
-    // let filtered = array1QandA.filter(removeValue);
-    // console.log(filtered);
-// __________________________________________________________
 
 
     </script>
