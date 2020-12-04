@@ -35,34 +35,46 @@ ________________________________________________________________________________
     <h5><span id="check-answer"> </span></h5>
 
     <script>
+        // __________________________________________________________
         // Starting from a blank HTML file, create an array with 10 question objects. Each object in the array should be structured as follows: 
         //   `{ q: "QUESTION", a: "ANSWER" }`
 
-        // CREATE 2 ARRAYS:
+        // CREATE ARRAY:
         // 1 Full
-        let array1QandA = [
+        let firstRapArray = [
+            // 0
             { q: "Charlie Clips defeated Hollow da Don in their battle.", a: "True" },
+            // 1
             { q: "Tay Roc and Tsunami Surf almost fought Chess and Steams in a two-on-two battle.", a: "False" },
+            // 2
             { q: "T-Top beat Tha Saga to win the Ultimate Freestyling Friday championship.", a: "False" },
+            // 3
             { q: "T-Top loss to Charlie Clips during the Rookies vs. Vets tournament.", a: "True" },
+            // 4
             { q: "Hollow da Don's chapstick was thrown back onto the stage after he threw it into the crowd during his battle against Tay Roc.", a: "False" },
+            // 5
             { q: "Geechi Gotti represents the Grandees neighborhood located in Compton, CA.", a: "True" },
+            // 6
             { q: "Arsenal represents Newark, NJ.", a: "True" },
+            // 7
             { q: "John John da Don's super move during battles is his 'guess which room I'm in' scheme.", a: "False" },
+            // 8
             { q: "Cassidy refused to battle Murda Mook for $20,000.", a: "True" },
+            // 9
             { q: "Dizaster beat Hollow da Don in the anticipated 'Grudge Match' on the Rare Breed Entertainment stage.", a: "False" }];
 
         // check this array
-        // for (x of array1QandA) {
+        // for (x of rapArray) {
         //     console.log(x);
         // }
 
         // 1 Empty
-        // let array2QandA = [];
+        let secondRapArray = [];
+
+        // create a random selection
+        let indexNum = Math.floor(Math.random() * firstRapArray.length);
 
         // check and provide starting point for console
-        console.log(array1QandA);
-        // console.log(array2QandA);
         // __________________________________________________________
 
         // CREATE VARIABLES
@@ -74,11 +86,6 @@ ________________________________________________________________________________
         let displayFalse = "False";
         // __________________________________________________________
 
-        // GET ELEMENTS
-        // usersScore
-        document.getElementById("users-score").innerText = usersScore;
-        // __________________________________________________________
-
         //KEY PRESS
         document.onkeypress = function () {
             // set up event.key
@@ -87,33 +94,62 @@ ________________________________________________________________________________
             if (key === 't' || key === 'f') {
                 // console.log(key);
 
-                // create two random selection
-                let indexNum = Math.floor(Math.random() * array1QandA.length);
-                console.log(`this is the index: ${indexNum}`);
-                console.log(array1QandA[indexNum]);
-
-                // let indexNum2 = Math.floor(Math.random() * array2QandA.length);
-                // console.log(`this is the index: ${indexNum2}`);
+                // console.log(firstRapArray);
+                // firstRapArray.splice(indexNum, 1);
+                // console.log(firstRapArray);
 
 
-                // Create two functions:\/;p one for each array
-                // create a function that continuously transfers questions and answers from one array to another
-                function oneByOne() {
-                    // if/else statements for array filter
-                    if (array1QandA.length > 0) {
-                        // array2QandA.push(array1QandA[indexNum]);
-                        array1QandA.splice(indexNum, 1);
+                // create a variable for random elements of the first array
+                let firstArrayElements = firstRapArray[indexNum];
+                // check variable
+                // console.log(firstArrayElements);
 
-                        console.log(array1QandA);
-                        // console.log(array2QandA);
-                        // close if statement
-                    }
+
+                if (firstRapArray.length > 0) {
+                    secondRapArray.push(firstRapArray[indexNum]);
+                    firstRapArray.splice(indexNum, 1);;
+
+                    // rectify random selection
+                    indexNum = Math.floor(Math.random() * firstRapArray.length);
+
                 }
-                oneByOne();
-                // execute
+
+                console.log(indexNum);
+                console.log(firstArrayElements);
+                console.log(firstRapArray);
+                console.log(secondRapArray);
+                // __________________________________________________________
+                // check for questions
+                // let arrayQ = firstRapArray[indexNum].q;
+                // console.log(arrayQ);
+
+                // check for answers
+                // let arrayA = firstRapArray[indexNum].a;
+                // console.log(arrayA);
+                // __________________________________________________________
+                //* Check the user's answer against the correct answer, and provide them with an alert telling them if they are right or wrong.
+                //* **BONUS:** Keep track of the user's score.
+
+                // // function: "true" or "false"
+                // function usersChoice() {
+                //     if (key === 't') {
+                //         return displayTrue
+                //     } else {
+                //         return displayFalse
+                //     }
+                // }
+                // usersChoice();
+                // // check usersChoice
+                // // console.log(usersChoice());
+                // __________________________________________________________
+                // GET ELEMENTS
+                // usersScore
+                // document.getElementById("users-score").innerText = usersScore;
+                // __________________________________________________________
+
+
                 // Close: t/f keys
             }
-
             // Close: Key Press
         }
 
