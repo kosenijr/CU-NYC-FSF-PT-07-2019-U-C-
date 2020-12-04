@@ -107,9 +107,10 @@ ________________________________________________________________________________
 
                 if (firstRapArray.length > 0) {
                     secondRapArray.push(firstRapArray[indexNum]);
-                    firstRapArray.splice(indexNum, 1);;
+                    firstRapArray.splice(indexNum, 1);
 
-                    // rectify random selection
+                    // problem: too many undefined index references in the first array
+                    // rectify random selection to reflect length changes to array
                     indexNum = Math.floor(Math.random() * firstRapArray.length);
 
                 }
@@ -118,6 +119,8 @@ ________________________________________________________________________________
                 console.log(firstArrayElements);
                 console.log(firstRapArray);
                 console.log(secondRapArray);
+
+
                 // __________________________________________________________
                 // check for questions
                 // let arrayQ = firstRapArray[indexNum].q;
@@ -130,17 +133,17 @@ ________________________________________________________________________________
                 //* Check the user's answer against the correct answer, and provide them with an alert telling them if they are right or wrong.
                 //* **BONUS:** Keep track of the user's score.
 
-                // // function: "true" or "false"
-                // function usersChoice() {
-                //     if (key === 't') {
-                //         return displayTrue
-                //     } else {
-                //         return displayFalse
-                //     }
-                // }
-                // usersChoice();
-                // // check usersChoice
-                // // console.log(usersChoice());
+                // function: "true" or "false"
+                function usersChoice() {
+                    if (key === 't') {
+                        return displayTrue
+                    } else {
+                        return displayFalse
+                    }
+                }
+                usersChoice();
+                // check usersChoice
+                console.log(usersChoice());
                 // __________________________________________________________
                 // GET ELEMENTS
                 // usersScore
