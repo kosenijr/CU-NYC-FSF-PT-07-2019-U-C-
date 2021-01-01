@@ -1,7 +1,6 @@
 <!--
 ______________________________________________________________________________________________________________________________________
 ### Instructions
-
 * Starting from a blank HTML file, create an array with 10 question objects. Each object in the array should be structured as follows: 
 //   `{ q: "QUESTION", a: "ANSWER" }`.
 * Then create code that will ask the user questions, one by one. The user must answer by hitting t (for true) or f (for false).
@@ -22,19 +21,15 @@ ________________________________________________________________________________
 
 <body>
 
+    <h1>Battle Rap Question Game</h1>
+
     <h3>Score: <span id="users-score"> </span></h3>
 
-
     <h3>Here is the Question:</h3>
-    <h3><span id="random-question"> </span></h3>
+    <h3><span id="get-question"> </span></h3>
 
-
-    <h4>User's Choice: <span id="users-pick"> </span></h4>
-
-    <h5><span id="check-answer"> </span></h5>
 
     <script>
-        // __________________________________________________________
         // Starting from a blank HTML file, create an array with 10 question objects. Each object in the array should be structured as follows: 
         //   `{ q: "QUESTION", a: "ANSWER" }`
 
@@ -61,168 +56,92 @@ ________________________________________________________________________________
             // 8
             { q: "Cassidy refused to battle Murda Mook for $20,000.", a: "True" },
             // 9
-            { q: "Dizaster beat Hollow da Don in the anticipated 'Grudge Match' on the Rare Breed Entertainment stage.", a: "False" }];
-
-
-        // 1 Empty
-        let fillThisUp = [];
-
-        // array length
-        // console.log(battleRapArray.length);
-
-        // create a random selection using the battle rap array
-        let indexNum = Math.floor(Math.random() * battleRapArray.length);
-
-        // create randomized elements of the array
-        let rapElements = battleRapArray[indexNum];
-
-        // check for questions
-        let arrayQ = battleRapArray[indexNum].q;
-        console.log(arrayQ);
-
-        let arrayQL = battleRapArray[indexNum].q.length;
-        // console.log(arrayQL);
-        // this is inconsequential
-
-        // check for answers
-        let arrayA = battleRapArray[indexNum].a;
-        // console.log("Answer: " + arrayA);
-
-        // __________________________________________________________
-
-        // CREATE VARIABLES
-
+            { q: "Dizaster beat Hollow da Don in the anticipated 'Grudge Match' on the Rare Breed Entertainment stage.", a: "False" }
+        ];
+        // -----------------------------------------------------------------
+        // variables:
+        // for score
         let usersScore = 0;
-        //get element by id: s
-        document.getElementById("users-score").innerText = usersScore;
+        // get element by id
+        document.getElementById('users-score').innerText = usersScore;
+        // index number for array
+        let indexNum = 0;
 
-        let randomQuestion = arrayQ; //"Press any key to start the game!"
+        // for first array question
+        let arrayQuestion = battleRapArray[indexNum].q;
+        // starting question
+        console.log(arrayQuestion);
+        // for first array answer
+        let arrayAnswer = battleRapArray[indexNum].a;
 
-        // get element by id: s
-        document.getElementById("random-question").innerText = randomQuestion;
+        // display true and false
+        let displayTrue = 'True';
+        let displayFalse = 'False';
 
-        let usersPick;
-        let checkAnswer;
-        let displayTrue = "True";
-        let displayFalse = "False";
-
-        // __________________________________________________________
-
-        //KEY PRESS
-
+        // get element by id
+        document.getElementById('get-question').innerText = arrayQuestion;
+        // -----------------------------------------------------------------
+        // create a key press
         document.onkeypress = function () {
-
-            // set up event.key: s
+            // set up key event: s
             let key = event.key;
+            // console.log(key);
+            indexNum++;
 
-            // limit keys to 't' and 'f': s
+            // function: limit keys to t and f to reflect 'true' and 'false'
             if (key === 't' || key === 'T' || key === 'f' || key === 'F') {
-                // --------------------------------------------------------
-                // function: true or false display: s
+
+                // function: provides a 'true' or 'false' return
+
                 function trueOrFalse() {
                     if (key === 't' || key === 'T') {
                         return displayTrue;
                     } else if (key === 'f' || key === 'F') {
                         return displayFalse;
-                    } else { return " " }
+                    } else { return '' }
                 }
-                trueOrFalse();
 
-                // set variable to function
-                usersPick = trueOrFalse();
+                // function: change to other questions through indexNum
+                // reintroduce array questions and answers
+                // return array questions
+                function nextQuestion() {
+                    if (trueOrFalse() && indexNum < 10) {
+                        arrayQuestion = battleRapArray[indexNum].q;
+                        arrayAnswer = battleRapArray[indexNum].a;
+                        return arrayQuestion;
+                    }
+                }
 
-                // get element by id
-                document.getElementById("users-pick").innerText = usersPick;
-                // --------------------------------------------------------
-
-
-                // correctness of user's choice
-                if (trueOrFalse() === arrayA) {
+                // conditional statement: juxtapose user's choice to array answers
+                // use alerts to communicate the correct nature of answer choices to users
+                // incentivize user's choices through an increase in score
+                if (trueOrFalse() === arrayAnswer) {
+                    alert('Your answer is correct!');
                     usersScore += 10;
-                    console.log(usersScore);
-                    checkAnswer = "Correct. Nice Job!";
-
                 } else {
-                    checkAnswer = "Sorry. That's Incorrect.";
+                    alert('Sorry. Your answer is incorrect!');
+                    usersScore;
                 }
 
-
-                // splice and push
-                if (battleRapArray.length > 0) {
-                    fillThisUp.push(battleRapArray[indexNum]);
-                    battleRapArray.splice(indexNum, 1);
-                    indexNum = Math.floor(Math.random() * battleRapArray.length);
-                    console.log(`Index Number: ${indexNum}`);
-                }
-
-                arrayQ = battleRapArray[indexNum].q;
-                console.log(arrayQ);
+                // ------------------------------------------------------
                 // get element by id
-                document.getElementById("random-question").innerText = arrayQ;
+                // for score
+                document.getElementById('users-score').innerText = usersScore;
 
+                // next questions
+                document.getElementById('get-question').innerText = nextQuestion();
+                // ------------------------------------------------------
+                // close it out with a function
+                function inClosing(myNum) {
+                    if (indexNum === myNum) {
+                        // console.log(typeof (myNum) );
+                        document.write(`<h2><strong>You had ${usersScore / 10} questions out of 10 right!</strong></h2>`);
+                    }
+                }
+                inClosing(10);
+                // problem: directly equating indexNum to a specific number (10) was difficult, especially when using the '===' operator. I noticed that creating the myNum parameter in the function 
             }
-
-
         }
-
-
-
-
-
-
-
-            //     if (battleRapArray.length > 0) {
-            //         fillThisUp.push(battleRapArray[indexNum]);
-            //         battleRapArray.splice(indexNum, 1);
-
-            //         // problem: too many undefined index references in the first array
-            //         // rectify random selection to reflect length changes to array
-            //         indexNum = Math.floor(Math.random() * battleRapArray.length);
-
-            //     }
-
-            //     console.log(indexNum);
-            //     console.log(firstArrayElements);
-            //     console.log(battleRapArray);
-            //     console.log(fillThisUp);
-            //     // _________________________________________________________
-            //     // STATE RULES
-
-            //     // function: "true" or "false"
-            //     function usersChoice() {
-            //         if (key === 't') {
-            //             return displayTrue
-            //         } else if (key === 'f') {
-            //             return displayFalse
-            //         } else { return " " }
-            //     }
-            //     // usersChoice();
-            //     // check usersChoice
-            //     console.log(usersChoice());
-
-            //     // // compare user's answers to array
-            //     function ansProvided() {
-            //         if (usersChoice() === arrayA) {
-            //             usersScore += 10;
-            //             checkAnswer = "Correct!"
-
-            //             // check
-            //             console.log("User's Score/Answer: " + usersScore, checkAnswer)
-
-            //         } else {
-            //             checkAnswer = "Sorry. That is incorrect."
-            //             console.log("User's Answer: " + checkAnswer);
-            //         }
-            //     }
-            //     // _________________________________________________________
-            //     // GET ELEMENT(S)
-            //     // usersScore
-            //     document.getElementById("users-score").innerText = usersScore;
-            //     //_________________________________________________________
-            //     ansProvided();
-            //     // Close: t/f keys
-            // }
-
     </script>
 </body>
 

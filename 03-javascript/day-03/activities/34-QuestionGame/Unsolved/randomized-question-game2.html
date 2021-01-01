@@ -1,0 +1,155 @@
+<!--
+______________________________________________________________________________________________________________________________________
+### Instructions
+* Starting from a blank HTML file, create an array with 10 question objects. Each object in the array should be structured as follows: 
+//   `{ q: "QUESTION", a: "ANSWER" }`.
+* Then create code that will ask the user questions, one by one. The user must answer by hitting t (for true) or f (for false).
+* Check the user's answer against the correct answer, and provide them with an alert telling them if they are right or wrong.
+* **BONUS:** Keep track of the user's score.
+* **HINT:** Don't worry about having DRY code to start with. Just focus on getting working code first. 
+______________________________________________________________________________________________________________________________________
+-->
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle-Rap Question Game</title>
+</head>
+
+<body>
+
+    <h3>Score: <span id="users-score"> </span></h3>
+
+    <h3>Here is the Question:</h3>
+    <h3><span id="random-question"> </span></h3>
+
+    <h4>User's Choice: <span id="users-pick"> </span></h4>
+
+    <h5><span id="check-answer"> </span></h5>
+
+    <script>
+        // Starting from a blank HTML file, create an array with 10 question objects. Each object in the array should be structured as follows: 
+        //   `{ q: "QUESTION", a: "ANSWER" }`
+
+        // CREATE ARRAY:
+
+        // 1 Full
+        let battleRapArray = [
+            // 0
+            { q: "Charlie Clips defeated Hollow da Don in their battle.", a: "True" },
+            // 1
+            { q: "Tay Roc and Tsunami Surf almost fought Chess and Steams in a two-on-two battle.", a: "False" },
+            // 2
+            { q: "T-Top beat Tha Saga to win the Ultimate Freestyling Friday championship.", a: "False" },
+            // 3
+            { q: "T-Top loss to Charlie Clips during the Rookies vs. Vets tournament.", a: "True" },
+            // 4
+            { q: "Hollow da Don's chapstick was thrown back onto the stage after he threw it into the crowd during his battle against Tay Roc.", a: "False" },
+            // 5
+            { q: "Geechi Gotti represents the Grandees neighborhood located in Compton, CA.", a: "True" },
+            // 6
+            { q: "Arsenal represents Newark, NJ.", a: "True" },
+            // 7
+            { q: "John John da Don's super move during battles is his 'guess which room I'm in' scheme.", a: "False" },
+            // 8
+            { q: "Cassidy refused to battle Murda Mook for $20,000.", a: "True" },
+            // 9
+            { q: "Dizaster beat Hollow da Don in the anticipated 'Grudge Match' on the Rare Breed Entertainment stage.", a: "False" }];
+
+        // 1 Empty
+        let fillThisUp = [];
+
+        // create a random selection using the battle rap array
+        let indexNum = Math.floor(Math.random() * battleRapArray.length);
+
+        // create randomized elements of the array
+        let rapElements = battleRapArray[indexNum];
+        // --------------------------------------------------------------
+        // CREATE VARIABLES
+        let usersScore = 0;
+        document.getElementById("users-score").innerText = usersScore;
+
+        let usersPick = 'Please select any key to continue';
+        document.getElementById('random-question').innerText = usersPick;
+
+        let checkAnswer = '';
+        let displayTF = '';
+
+        // --------------------------------------------------------------
+        // check for questions
+        let arrayQ = battleRapArray[indexNum].q;
+        console.log(arrayQ);
+        // check for answers
+        let arrayA = battleRapArray[indexNum].a;
+        console.log("Answer: " + arrayA);
+        // --------------------------------------------------------------
+        //KEY PRESS
+
+        // Functions
+        document.onkeypress = function () {
+            // set up event.key: s
+            let key = event.key;
+            // console.log(key)
+
+        // --------------------------------------------------------------
+        function setUp() {
+            document.getElementById('random-question').innerText = arrayQ;
+            usersScore = 0;
+            userPick = ' ';
+            displayTF = ' ';
+        }
+        setUp();
+
+            // *********************************************************
+            if (key === 't' || key === 'T' || key === 'f' || key === 'F') {
+
+                if (battleRapArray.length > 0) {
+                    fillThisUp.push(battleRapArray[indexNum]);
+                    battleRapArray.splice(indexNum, 1);
+                    indexNum = Math.floor(Math.random() * battleRapArray.length);
+                    arrayQ = battleRapArray[indexNum].q;
+                    arrayA = battleRapArray[indexNum].a;
+                }
+                console.log(arrayQ);
+                console.log(arrayA);
+
+            }
+            // *********************************************************
+            function trueOrFalse() {
+                if (key === 't' || key === 'T') {
+                    displayTF = 'True';
+                } else if (key === 'f' || key === 'F') {
+                    displayTF = 'False';
+                } else { return " " }
+            }
+
+            document.getElementById('users-pick').innerText = displayTF;
+            // *********************************************************
+            // keep score and check answer: s
+            function updateScoreAndCheck() {
+                if (trueOrFalse() === arrayA) {
+                    usersScore += 10;
+                    checkAnswer = 'Correct!';
+                    // problem: keeps returning scores in increments of 20 instead of 10!
+                    //fixed: problem identified as a duplicated call of keepScoreAndCheck(): I removed one of the two function calls.
+                } else { checkAnswer = `Sorry. That's Incorrect.`; }
+            }
+            // call function
+            updateScoreAndCheck();
+
+            // get elements by id
+            // score
+            document.getElementById('users-score').innerText = usersScore;
+            // check answer
+            document.getElementById('check-answer').innerText = checkAnswer;
+            // *********************************************************
+        }
+
+
+    </script>
+</body>
+
+</html>
